@@ -1,4 +1,4 @@
-FROM gcr.io/stacksmith-images/debian-buildpack:jessie-r0
+FROM gcr.io/stacksmith-images/ubuntu-buildpack:14.04-r8
 
 MAINTAINER Bitnami <containers@bitnami.com>
 
