@@ -6,7 +6,7 @@ USER root
 
 RUN echo "%sudo ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
-Install extra packages
+# Install extra packages
 RUN apt-get update && \
     apt-get install -y clang libicu-dev icu-devtools uuid-dev  && \
     apt-get clean
