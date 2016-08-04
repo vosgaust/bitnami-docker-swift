@@ -20,8 +20,8 @@ RUN bitnami-pkg unpack tomcat-8.0.35-0 --checksum d86af6bade1325215d4dd1b63aefbd
 RUN ln -sf /opt/bitnami/$BITNAMI_APP_NAME/data /app
 ENV PATH=/opt/bitnami/$BITNAMI_APP_NAME/bin:$PATH
 ENV TOMCAT_HOME=/opt/bitnami/$BITNAMI_APP_NAME
-RUN bitnami-pkg install python-2.7.11-3 --checksum 51d9ebc8a10e75f420c1af1321db321e20c45386a538932c78d5e0d74192aea5
-ENV PATH=/opt/bitnami/python/bin:$PATH
+#RUN bitnami-pkg install python-2.7.11-3 --checksum 51d9ebc8a10e75f420c1af1321db321e20c45386a538932c78d5e0d74192aea5
+#ENV PATH=/opt/bitnami/python/bin:$PATH
 
 # Swift module
 #RUN bitnami-pkg install swift-3.0-DEVELOPMENT-SNAPSHOT-2016-07-25-0 --checksum 5988b509d2dae24a9fd46fd31d3fe7df91f9a67978df07e2fe86bae447feffad
