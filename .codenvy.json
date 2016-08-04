@@ -1,0 +1,72 @@
+{
+  "v": "4.0",
+  "workspace": {
+    "name": "swift",
+    "defaultEnv": "swift",
+    "environments": [
+      {
+        "name": "swift",
+        "recipe": null,
+        "machineConfigs": [
+          {
+            "name": "ws-machine",
+            "limits": {
+              "ram": 1536
+            },
+            "source": {
+              "type": "dockerfile",
+              "location": "https://raw.githubusercontent.com/juan131/bitnami-docker-swift/master/.codenvy.dockerfile"
+            },
+            "type": "docker",
+            "dev": true
+          }
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "name": "swift-sample",
+        "type": "swift",
+        "path": "/swift-sample",
+        "source": {
+          "type": "git",
+          "location": "https://github.com/PerfectlySoft/PerfectTemplate.git",
+          "parameters": {}
+        },
+        "mixins": [
+          "git"
+        ],
+        "modules": [],
+        "problems": []
+      }
+    ],
+    "commands": [
+      {
+        "name": "create sample project",
+        "type": "custom",
+        "commandLine": "cd ${current.project.path}/Perfect && swift build",
+        "attributes": {}
+      },
+      {
+        "name": "start",
+        "type": "custom",
+        "commandLine": "cd ${current.project.path}/Perfect && ./.build/debug/PerfectTemplate",
+        "attributes": {
+          "previewUrl": "http://${server.port.8181}/"
+        }
+      }
+    ]
+  },
+  "ide": {
+    "onProjectsLoaded": {
+      "actions": [
+        {
+          "properties": {
+            "name": "create sample project"
+          },
+          "id": "runCommand"
+        }
+      ]
+    }
+  }
+}
