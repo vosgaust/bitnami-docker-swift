@@ -5,9 +5,9 @@ MAINTAINER Bitnami <containers@bitnami.com>
 RUN echo "%sudo ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 # Install extra packages
-RUN apt-get update && \
-    apt-get install -y clang libicu-dev icu-devtools uuid-dev  && \
-    apt-get clean
+# RUN apt-get update && \
+#   apt-get install -y clang libicu-dev icu-devtools uuid-dev  && \
+#   apt-get clean
 
 ENV BITNAMI_IMAGE_VERSION=8.0.35-r1 \
     BITNAMI_APP_NAME=tomcat \
@@ -24,18 +24,18 @@ RUN bitnami-pkg install python-2.7.11-3 --checksum 51d9ebc8a10e75f420c1af1321db3
 ENV PATH=/opt/bitnami/python/bin:$PATH
 
 # Swift module
-RUN bitnami-pkg install swift-3.0-DEVELOPMENT-SNAPSHOT-2016-07-25-0 --checksum 5988b509d2dae24a9fd46fd31d3fe7df91f9a67978df07e2fe86bae447feffad
-ENV PATH=/opt/bitnami/swift/bin:$PATH
+#RUN bitnami-pkg install swift-3.0-DEVELOPMENT-SNAPSHOT-2016-07-25-0 --checksum 5988b509d2dae24a9fd46fd31d3fe7df91f9a67978df07e2fe86bae447feffad
+#ENV PATH=/opt/bitnami/swift/bin:$PATH
 
-RUN chown -R bitnami:bitnami /opt/bitnami/swift
+#RUN chown -R bitnami:bitnami /opt/bitnami/swift
 
 ## STACKSMITH-END: Modifications below this line will be unchanged when regenerating
 
 LABEL che:server:8181:ref=swift che:server:8181:protocol=http
 
 # Swift template
-ENV BITNAMI_APP_NAME=swift \
-    BITNAMI_IMAGE_VERSION=3.0-DEVELOPMENT-SNAPSHOT-2016-07-25
+#ENV BITNAMI_APP_NAME=swift \
+#    BITNAMI_IMAGE_VERSION=3.0-DEVELOPMENT-SNAPSHOT-2016-07-25
 
 EXPOSE 8181
 
