@@ -44,13 +44,13 @@
       {
         "name": "create sample project",
         "type": "custom",
-        "commandLine": "cd ${current.project.path}/Perfect && swift build",
+        "commandLine": "cd ${current.project.path} && swift build",
         "attributes": {}
       },
       {
         "name": "start",
         "type": "custom",
-        "commandLine": "cd ${current.project.path}/Perfect && ./.build/debug/PerfectTemplate",
+        "commandLine": "cd ${current.project.path} && ./.build/debug/PerfectTemplate",
         "attributes": {
           "previewUrl": "http://${server.port.8181}/"
         }
