@@ -26,7 +26,7 @@
     "projects": [
       {
         "name": "swift-sample",
-        "type": "swift",
+        "type": "blank",
         "path": "/swift-sample",
         "source": {
           "type": "git",
