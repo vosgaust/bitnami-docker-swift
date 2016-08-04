@@ -29,7 +29,7 @@ RUN bitnami-pkg install swift-3.0-DEVELOPMENT-SNAPSHOT-2016-07-25-0 --checksum 5
 ENV PATH=/opt/bitnami/python/bin:$PATH
 ENV PATH=/opt/bitnami/swift/bin:$PATH
 
-RUN chown -R bitnami:bitnami /opt/bitnami
+RUN chown -R bitnami:bitnami /opt/bitnami/swift
 
 ## STACKSMITH-END: Modifications below this line will be unchanged when regenerating
 
