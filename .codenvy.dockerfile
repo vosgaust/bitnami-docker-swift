@@ -39,7 +39,6 @@ LABEL che:server:8181:ref=swift che:server:3000:protocol=http
 
 # Swift template
 ENV BITNAMI_APP_NAME=swift \
-    BITNAMI_APP_USER=bitnami \
     BITNAMI_IMAGE_VERSION=3.0-DEVELOPMENT-SNAPSHOT-2016-07-25
 
 EXPOSE 8181
