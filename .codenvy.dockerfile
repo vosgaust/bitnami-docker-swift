@@ -41,6 +41,6 @@ ENV BITNAMI_APP_NAME=swift \
 
 EXPOSE 8181
 
-OB0;95;0c# Start Tomcat to interact with Eclipse che
+# Start Tomcat to interact with Eclipse che
 LABEL che:server:8181:ref=swift che:server:8181:protocol=http
 CMD harpoon start --foreground tomcat
