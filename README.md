@@ -76,27 +76,38 @@ After the images have been downloaded, each of the services listed in the orches
 
 The service starts `myapp` and uses the Bitnami Swift development image. The service mounts the current working directory (`~/workdir/myapp`) at the `/app` location in the container and provides all the necessary infrastucture to get you started developing a data-driven Swift application.
 
-If your Swift app has a web HTTP server, once it has been started, visit port `8181` of the Docker Machine in your favourite web browser and you'll be able to reach the HTTP content.
+This Docker Image assumes that in case you decide to deploy a web application written in Swift, the web server will be listening in the port `8181`. Once the app has been started, visit port `8181` of the Docker Machine in your favourite web browser and you'll be able to reach the HTTP content. If you want to use any other port, you will need to modify both the Dockerfile and the docker-compose.yml files as described below:
+
+Dockefile:
+```docker
+~~EXPOSE 8181~~
+EXPOSE NEWPORT
+
+```
+docker-compose.yml:
+```docker
+~~8181:8181~~
+NEWPORT:NEWPORT
+```
 
 Lets inspect the contents of the `~/workdir/myapp` directory:
 
 ```bash
 ~/workdir/myapp # ls
-app.js  config              node_modules  public  views
-bin     docker-compose.yml  package.json  routes
+LICENSE  Packages  Package.swift  README.md  Sources  webroot
 ```
 
-You can see that we have a new Express application bootstrapped in the `~/workdir/myapp` directory of the host and is being served by the Node HTTP server running inside the Bitnami Express development container.
+You can see that we have a new Swift application bootstrapped in the `~/workdir/myapp` directory of the host.
 
 Since the application source resides on the host, you can use your favourite IDE for developing the application. Only the execution of the application occurs inside the isolated container environment.
 
-That’s all there is to it. Without actually installing a single Express component on the host you have a completely isolated and highly reproducible Express development environment which can be shared with the rest of the team to get them started building the next big feature without worrying about the plumbing involved in setting up the development environment. Let Bitnami do that for you.
+That’s all there is to it. Without actually installing a single Swift component on the host you have a completely isolated and highly reproducible Swift development environment which can be shared with the rest of the team to get them started building the next big feature without worrying about the plumbing involved in setting up the development environment. Let Bitnami do that for you.
 
-In the next sections we take a look at some of the common tasks that are involved during the development of a Express application and how we go about executing those tasks.
+In the next sections we take a look at some of the common tasks that are involved during the development of a Swift application and how we go about executing those tasks.
 
 ## Executing commands
 
-You may recall that we've not installed a single Node.js or Express component on the host and that the entire development environment is running inside the `myapp` service container. This means that if we wanted to execute [NPM](https://www.npmjs.com/) or any other Node command, we'd have to execute it inside the container.
+You may recall that we've not installed a single Swift component on the host and that the entire development environment is running inside the `myapp` service container. This means that if we wanted to execute [SWIFT-PACKAGE](https://swift.org/) or any other Swift command, we'd have to execute it inside the container.
 
 This may sound like a complex task to achieve. But don't worry, Docker Compose makes it very simple to execute tasks inside a service container using the `exec` command. The general form of the command looks something like the following:
 
@@ -106,68 +117,30 @@ $ docker-compose exec <service> <command>
 
 This instructs Docker Compose to execute the command specified by `<command>` inside the service container specified by `<service>`. The return value of the `docker-compose` command will reflect that of the specified command.
 
-With this information lets load the Node.js REPL in the `myapp` container:
+To see the Swift version currently installed:
 
 ```bash
-$ docker-compose exec myapp node
-```
-
-To list all the NPM modules currently installed:
-
-```bash
-$ docker-compose exec myapp npm ls
-```
-
-How about installing the [Bootstramp](https://www.npmjs.com/package/bootstrap) NPM module:
-
-```bash
-$ docker-compose exec myapp npm install bootstrap --save
-```
-
-To inspect that the module was installed:
-
-```bash
-$ docker-compose exec myapp npm ls bootstrap
+$ docker-compose exec myapp swift --version
 ```
 
 You get the idea..
 
-With the bootstrap NPM module installed, lets modify our Express application and use it to change the look and feel of the UI.
-
-Add a static route for serving the Bootstrap CSS by appending the following after the line `app.use(express.static(path.join(__dirname, 'public')));` in `app.js`.
-
-```javascript
-app.use('/stylesheets', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/css')));
-```
-
-Next in `views/layout.jade`, import the `bootstrap.min.css` style sheet by appending the following at the same indentation level after the line `link(rel='stylesheet', href='/stylesheets/style.css')` and at the same indentation level.
-
-```jade
-link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
-```
-
-Lastly, modify `views/index.jade` of our application to use the Bootstrap classes so that it looks like:
-
-```jade
-extends layout
-
-block content
-  .container
-    .jumbotron
-      h1= title
-      p My awesome #{title} website using Bootstrap CSS
-```
-
-The Node server should be restarted for the changes to take effect:
+You can create a new swift project:
 
 ```bash
-$ docker-compose restart myapp
+$ docker-compose exec myapp swift-package init
 ```
 
-Thats it! refresh your browser window and you'll see that the changes have taken effect.
+Then you can develop your swift code and when your app is ready to be build you can execute:
 
-## Connecting to Database
+```bash
+$ docker-compose exec myapp swift build
+```
 
-Express by default does not require a database connection to work but we provide a running and configured MongoDB service and an example file `config/mongodb.js` with some insights for how to connect to it.
+Finally you can execute your app:
 
-You can use [Mongoose](http://mongoosejs.com/) ODM in your application to model your application data.
+```bash
+$ docker-compose exec myapp .build/debug/yourapp
+```
+
+Thats it!
