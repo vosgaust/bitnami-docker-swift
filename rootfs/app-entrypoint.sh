@@ -2,7 +2,7 @@
 set -e
 
 PROJECT_DIRECTORY=/app/app_template
-SWIFT_APP=PerfectTemplate
+SWIFT_APP=Dealer
 
 app_present() {
     [ -d $PROJECT_DIRECTORY ]

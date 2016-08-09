@@ -30,7 +30,7 @@
         "path": "/swift-sample",
         "source": {
           "type": "git",
-          "location": "https://github.com/PerfectlySoft/PerfectTemplate.git",
+          "location": "https://github.com/apple/example-package-dealer.git",
           "parameters": {}
         },
         "mixins": [
@@ -50,7 +50,7 @@
       {
         "name": "start",
         "type": "custom",
-        "commandLine": "cd ${current.project.path} && ./.build/debug/PerfectTemplate",
+        "commandLine": "cd ${current.project.path} && ./.build/debug/Dealer",
         "attributes": {
           "previewUrl": "http://${server.port.8181}/"
         }

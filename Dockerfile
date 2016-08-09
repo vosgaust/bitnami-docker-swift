@@ -17,14 +17,14 @@ MAINTAINER Bitnami <containers@bitnami.com>
 
 # Install related packages
 RUN apt-get update && \
-    apt-get install -y clang libicu-dev icu-devtools uuid-dev libedit-dev libxml2-dev libsqlite3-dev libncurses5-dev openssl libssl-dev && \
+    apt-get install -y clang libicu-dev icu-devtools uuid-dev libedit-dev libxml2-dev libsqlite3-dev libncurses5-dev openssl libssl-dev curl && \
     apt-get clean
 	
 # Install related packages
-RUN bitnami-pkg install python-2.7.11-3 --checksum 51d9ebc8a10e75f420c1af1321db321e20c45386a538932c78d5e0d74192aea5
+RUN bitnami-pkg install python-2.7.12rc1-0 --checksum 2c56021761411358b949fa0c962d61875d70f5b092fc937dceea1b52ce8440d5
 
 # Swift module
-RUN bitnami-pkg install swift-3.0-DEVELOPMENT-SNAPSHOT-2016-07-25-0 --checksum ddc42cdbb2a369cc716d13ff4a5ef04cdf318f6902c9503953c06ad404e1ca9f
+RUN bitnami-pkg install swift-3.0-PREVIEW-4-0 --checksum 5a68b54f9c861f889268cfdb821f4ab4af06e95f87d16aef87236a8667b25bbc
 
 ENV PATH=/opt/bitnami/python/bin:$PATH
 ENV PATH=/opt/bitnami/swift/bin:$PATH
@@ -50,3 +50,4 @@ EXPOSE 8181
 
 ENTRYPOINT ["/app-entrypoint.sh"]
 CMD ["swift", "app", "start"]
+#CMD python -m SimpleHTTPServer 8181
