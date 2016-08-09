@@ -51,9 +51,7 @@
         "name": "start",
         "type": "custom",
         "commandLine": "cd ${current.project.path} && ./.build/debug/Dealer",
-        "attributes": {
-          "previewUrl": "http://${server.port.8181}/"
-        }
+        "attributes": {}
       }
     ]
   },
