@@ -8,7 +8,7 @@ RUN echo "%sudo ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 # Install extra packages
 RUN apt-get update && \
-    apt-get install -y clang libicu-dev icu-devtools uuid-dev libedit-dev libxml2-dev libsqlite3-dev libncurses5-dev openssl libssl-dev curl && \
+    apt-get install -y clang libedit2 libicu52 libsqlite3-dev libxml2 && \
     apt-get clean
 
 ENV BITNAMI_IMAGE_VERSION=8.0.35-r1 \

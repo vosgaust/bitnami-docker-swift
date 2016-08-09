@@ -17,9 +17,9 @@ MAINTAINER Bitnami <containers@bitnami.com>
 
 # Install related packages
 RUN apt-get update && \
-    apt-get install -y clang libicu-dev icu-devtools uuid-dev libedit-dev libxml2-dev libsqlite3-dev libncurses5-dev openssl libssl-dev curl && \
+    apt-get install -y clang libedit2 libicu52 libsqlite3-dev libxml2 && \
     apt-get clean
-	
+
 # Install related packages
 RUN bitnami-pkg install python-2.7.12rc1-0 --checksum 2c56021761411358b949fa0c962d61875d70f5b092fc937dceea1b52ce8440d5
 
@@ -50,4 +50,3 @@ EXPOSE 8181
 
 ENTRYPOINT ["/app-entrypoint.sh"]
 CMD ["swift", "app", "start"]
-#CMD python -m SimpleHTTPServer 8181
