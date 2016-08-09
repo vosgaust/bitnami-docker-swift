@@ -17,14 +17,14 @@ MAINTAINER Bitnami <containers@bitnami.com>
 
 # Install related packages
 RUN apt-get update && \
-    apt-get install -y clang libicu-dev icu-devtools uuid-dev  && \
+    apt-get install -y clang libicu-dev icu-devtools uuid-dev libedit-dev libxml2-dev libsqlite3-dev libncurses5-dev openssl libssl-dev && \
     apt-get clean
 	
 # Install related packages
 RUN bitnami-pkg install python-2.7.11-3 --checksum 51d9ebc8a10e75f420c1af1321db321e20c45386a538932c78d5e0d74192aea5
 
 # Swift module
-RUN bitnami-pkg install swift-3.0-DEVELOPMENT-SNAPSHOT-2016-07-25-0 --checksum 5988b509d2dae24a9fd46fd31d3fe7df91f9a67978df07e2fe86bae447feffad
+RUN bitnami-pkg install swift-3.0-DEVELOPMENT-SNAPSHOT-2016-07-25-0 --checksum ddc42cdbb2a369cc716d13ff4a5ef04cdf318f6902c9503953c06ad404e1ca9f
 
 ENV PATH=/opt/bitnami/python/bin:$PATH
 ENV PATH=/opt/bitnami/swift/bin:$PATH

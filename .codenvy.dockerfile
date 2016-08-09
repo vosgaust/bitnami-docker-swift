@@ -30,7 +30,7 @@ RUN bitnami-pkg install python-2.7.11-3 --checksum 51d9ebc8a10e75f420c1af1321db3
 ENV PATH=/opt/bitnami/python/bin:$PATH
 
 # Swift module
-RUN bitnami-pkg install swift-3.0-DEVELOPMENT-SNAPSHOT-2016-07-25-0 --checksum 5988b509d2dae24a9fd46fd31d3fe7df91f9a67978df07e2fe86bae447feffad
+RUN bitnami-pkg install swift-3.0-DEVELOPMENT-SNAPSHOT-2016-07-25-0 --checksum ddc42cdbb2a369cc716d13ff4a5ef04cdf318f6902c9503953c06ad404e1ca9f
 ENV PATH=/opt/bitnami/swift/bin:$PATH
 
 ## STACKSMITH-END: Modifications below this line will be unchanged when regenerating
