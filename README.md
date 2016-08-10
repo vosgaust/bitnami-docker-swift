@@ -79,16 +79,14 @@ The service starts `myapp` and uses the Bitnami Swift development image. The ser
 This Docker Image assumes that in case you decide to deploy a web application written in Swift, the web server will be listening in the port `80`. Once the app has been started, visit port `80` of the Docker Machine in your favourite web browser and you'll be able to reach the HTTP content. If you want to use any other port, you will need to modify both the Dockerfile and the docker-compose.yml files as described below:
 
 Dockefile:
-```docker
+
 ~~EXPOSE 80~~
 EXPOSE NEWPORT
 
-```
 docker-compose.yml:
-```docker
+
 ~~80:80~~
 NEWPORT:NEWPORT
-```
 
 Lets inspect the contents of the `~/workdir/myapp` directory:
 
