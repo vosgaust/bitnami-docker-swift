@@ -1,4 +1,4 @@
-## BUILDING
+OB## BUILDING
 ##   (from project root directory)
 ##   $ docker build -t bitnami-bitnami-docker-swift .
 ##
@@ -35,7 +35,7 @@ RUN chown -R bitnami:bitnami /opt/bitnami/swift
 
 # Swift template
 ENV BITNAMI_APP_NAME=swift \
-    BITNAMI_IMAGE_VERSION=3.0-DEVELOPMENT-SNAPSHOT-2016-07-25
+    BITNAMI_IMAGE_VERSION=3.0-PREVIEW-4
 
 COPY rootfs/ /
 

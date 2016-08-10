@@ -76,17 +76,17 @@ After the images have been downloaded, each of the services listed in the orches
 
 The service starts `myapp` and uses the Bitnami Swift development image. The service mounts the current working directory (`~/workdir/myapp`) at the `/app` location in the container and provides all the necessary infrastucture to get you started developing a data-driven Swift application.
 
-This Docker Image assumes that in case you decide to deploy a web application written in Swift, the web server will be listening in the port `8181`. Once the app has been started, visit port `8181` of the Docker Machine in your favourite web browser and you'll be able to reach the HTTP content. If you want to use any other port, you will need to modify both the Dockerfile and the docker-compose.yml files as described below:
+This Docker Image assumes that in case you decide to deploy a web application written in Swift, the web server will be listening in the port `80`. Once the app has been started, visit port `80` of the Docker Machine in your favourite web browser and you'll be able to reach the HTTP content. If you want to use any other port, you will need to modify both the Dockerfile and the docker-compose.yml files as described below:
 
 Dockefile:
 ```docker
-~~EXPOSE 8181~~
+~~EXPOSE 80~~
 EXPOSE NEWPORT
 
 ```
 docker-compose.yml:
 ```docker
-~~8181:8181~~
+~~80:80~~
 NEWPORT:NEWPORT
 ```
 
