@@ -11,11 +11,11 @@
           {
             "name": "ws-machine",
             "limits": {
-              "ram": 1536
+              "ram": 1024
             },
             "source": {
-              "type": "dockerfile",
-              "location": "https://raw.githubusercontent.com/juan131/bitnami-docker-swift/master/.codenvy.dockerfile"
+              "type": "image",
+              "location": "juanariza131/che-swift"
             },
             "type": "docker",
             "dev": true
