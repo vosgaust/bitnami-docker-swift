@@ -31,26 +31,33 @@
         "source": {
           "type": "git",
           "location": "https://github.com/apple/example-package-dealer.git",
-          "parameters": {}
+          "parameters": {
+            "keepVcs": "true"
+          }
         },
         "mixins": [
-          "git"
+          "git",
+          "pullrequest"
         ],
+        "attributes": {
+          "local_branch": [ "contrib" ],
+          "contribute_to_branch" : [ "master" ]
+        },
         "modules": [],
         "problems": []
       }
     ],
     "commands": [
       {
-        "name": "create sample project",
+        "name": "build sample project",
         "type": "custom",
         "commandLine": "cd ${current.project.path} && swift build",
         "attributes": {}
       },
       {
-        "name": "start",
+        "name": "build and start",
         "type": "custom",
-        "commandLine": "cd ${current.project.path} && ./.build/debug/Dealer",
+        "commandLine": "cd ${current.project.path} && swift build && ./.build/debug/Dealer",
         "attributes": {}
       }
     ]
@@ -60,7 +67,7 @@
       "actions": [
         {
           "properties": {
-            "name": "create sample project"
+            "name": "build sample project"
           },
           "id": "runCommand"
         }
