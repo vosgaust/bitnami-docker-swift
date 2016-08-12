@@ -6,9 +6,7 @@ USER root
 
 # Install extra packages
 RUN apt-get update && \
-    apt-get install -y clang libedit2 libicu52 libsqlite3-dev libxml2 sudo openssh-server && \
-    mkdir /var/run/sshd && \
-    sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd && \
+    apt-get install -y clang libedit2 libicu52 libsqlite3-dev libxml2 && \
     echo "%sudo ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \
     apt-get clean && \
     apt-get -y autoremove && \
