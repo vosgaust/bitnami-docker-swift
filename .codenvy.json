@@ -30,7 +30,7 @@
         "path": "/swift-sample",
         "source": {
           "type": "git",
-          "location": "https://github.com/apple/example-package-dealer.git",
+          "location": "https://github.com/octocat/Spoon-Knife.git",
           "parameters": {
             "keepVcs": "true"
           }
