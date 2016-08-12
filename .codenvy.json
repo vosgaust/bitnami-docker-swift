@@ -30,7 +30,7 @@
         "path": "/swift-sample",
         "source": {
           "type": "git",
-          "location": "https://github.com/octocat/Spoon-Knife.git",
+          "location": "git@github.com:juan131/Spoon-Knife.git",
           "parameters": {
             "keepVcs": "true"
           }
