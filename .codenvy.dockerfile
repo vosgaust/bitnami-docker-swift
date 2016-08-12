@@ -4,12 +4,15 @@ MAINTAINER Bitnami <containers@bitnami.com>
 
 USER root
 
-RUN echo "%sudo ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
-
 # Install extra packages
 RUN apt-get update && \
-    apt-get install -y clang libedit2 libicu52 libsqlite3-dev libxml2 && \
-    apt-get clean
+    apt-get install -y clang libedit2 libicu52 libsqlite3-dev libxml2 sudo openssh-server && \
+    mkdir /var/run/sshd && \
+    sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd && \
+    echo "%sudo ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \
+    apt-get clean && \
+    apt-get -y autoremove && \
+    rm -rf /var/lib/apt/lists/*
 
 # Install related packages
 RUN bitnami-pkg install java-1.8.0_91-0 --checksum 64cf20b77dc7cce3a28e9fe1daa149785c9c8c13ad1249071bc778fa40ae8773

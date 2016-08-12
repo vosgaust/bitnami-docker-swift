@@ -49,15 +49,15 @@
     ],
     "commands": [
       {
-        "name": "build sample project",
-        "type": "custom",
-        "commandLine": "cd ${current.project.path} && swift build",
-        "attributes": {}
-      },
-      {
         "name": "build and start",
         "type": "custom",
         "commandLine": "cd ${current.project.path} && swift build && ./.build/debug/Dealer",
+        "attributes": {}
+      },
+      {
+        "name": "build sample project",
+        "type": "custom",
+        "commandLine": "cd ${current.project.path} && swift build",
         "attributes": {}
       }
     ]
