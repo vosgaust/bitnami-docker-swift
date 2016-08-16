@@ -30,7 +30,7 @@
         "path": "/swift-sample",
         "source": {
           "type": "git",
-          "location": "https://github.com/apple/example-package-dealer.git",
+          "location": "https://github.com/juan131/example-package-dealer.git",
           "parameters": {
             "keepVcs": "true"
           }
