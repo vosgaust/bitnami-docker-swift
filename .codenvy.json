@@ -30,7 +30,7 @@
         "path": "/swift-sample",
         "source": {
           "type": "git",
-          "location": "https://github.com/juan131/example-package-dealer.git",
+          "location": "https://github.com/juan131/bitnami-docker-swift.git",
           "parameters": {
             "keepVcs": "true"
           }
@@ -51,13 +51,13 @@
       {
         "name": "build and start",
         "type": "custom",
-        "commandLine": "cd ${current.project.path} && swift build && ./.build/debug/Dealer",
+        "commandLine": "cd ${current.project.path}/app_template && swift build && ./.build/debug/Dealer",
         "attributes": {}
       },
       {
         "name": "build sample project",
         "type": "custom",
-        "commandLine": "cd ${current.project.path} && swift build",
+        "commandLine": "cd ${current.project.path}/app_template && swift build",
         "attributes": {}
       }
     ]
