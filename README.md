@@ -1,7 +1,7 @@
 # Eclipse Che Developer Workspace
 Click to get an Eclipse Che on-demand workspace with a sample project ready to start developing.
 
-[![Contribute](http://beta.codenvy.com/factory/resources/codenvy-contribute.svg)](https://beta.codenvy.com/f/?url=https%3A%2F%2Fgithub.com%2Fjuan131%2Fbitnami-docker-swift)
+[![Contribute](http://beta.codenvy.com/factory/resources/codenvy-contribute.svg)](https://beta.codenvy.com/f/?url=https%3A%2F%2Fgithub.com%2Fjuan131%2Fbitnami-docker-swift%2Ftree%2Fche))
 
 # Swift Application Development using Bitnami Docker Images
 
